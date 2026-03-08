@@ -4,7 +4,6 @@ int HitCounter::getTotalHits() const {
     return m_totalHits;
 }
 
-
 std::pair<int, int> HitCounter::getLastBucket() const {
     return m_playlist.back();
 }

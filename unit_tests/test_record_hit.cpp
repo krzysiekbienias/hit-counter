@@ -2,7 +2,6 @@
 #include <utility>
 #include "interface.hpp"
 
-
 TEST(HitCounterHitTest, SingleHitCreatesOneBucket) {
     HitCounter counter;
 

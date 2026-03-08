@@ -61,7 +61,7 @@ TEST(HitCounterGetHitsTest, RemovesExpiredHitsWhenWindowMovesForward) {
     counter.hit(2);
     counter.hit(300);
 
-    EXPECT_EQ(counter.getHits(301), 2); // timestamp 1 expired
+    EXPECT_EQ(counter.getHits(301), 2);  // timestamp 1 expired
 }
 
 TEST(HitCounterGetHitsTest, RemovesMultipleExpiredBucketsAtOnce) {
@@ -80,7 +80,7 @@ TEST(HitCounterGetHitsTest, ExactLeftBoundaryIsExcluded) {
     counter.hit(21);
     counter.hit(320);
 
-    EXPECT_EQ(counter.getHits(320), 2); // valid range [21, 320]
+    EXPECT_EQ(counter.getHits(320), 2);  // valid range [21, 320]
 }
 
 TEST(HitCounterGetHitsTest, RepeatedQueriesWithoutNewExpiryReturnSameAnswer) {
@@ -124,7 +124,7 @@ TEST(HitCounterGetHitsTest, InterleavedHitsAndQueriesWorkCorrectly) {
     EXPECT_EQ(counter.getHits(2), 3);
 
     counter.hit(301);
-    EXPECT_EQ(counter.getHits(301), 2); // two hits at timestamp 1 expired
+    EXPECT_EQ(counter.getHits(301), 2);  // two hits at timestamp 1 expired
 }
 
 TEST(HitCounterGetHitsTest, MixedBucketsReturnCorrectCountAfterCleanup) {
@@ -135,7 +135,7 @@ TEST(HitCounterGetHitsTest, MixedBucketsReturnCorrectCountAfterCleanup) {
     counter.hit(100);
     counter.hit(310);
 
-    EXPECT_EQ(counter.getHits(310), 3); // only 100 and 310 remain
+    EXPECT_EQ(counter.getHits(310), 3);  // only 100 and 310 remain
 }
 
 TEST(HitCounterGetHitsTest, AllHitsWithinWindowRemainCounted) {
@@ -156,5 +156,5 @@ TEST(HitCounterGetHitsTest, CleanupDoesNotRemoveValidFrontBucket) {
     counter.hit(22);
     counter.hit(320);
 
-    EXPECT_EQ(counter.getHits(320), 3); // 21 is still valid
+    EXPECT_EQ(counter.getHits(320), 3);  // 21 is still valid
 }

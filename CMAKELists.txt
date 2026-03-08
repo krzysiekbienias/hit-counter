@@ -15,6 +15,9 @@ option(ENABLE_DEV_MAIN "Build dev_main executable (experiments)" ON)
 
 add_library(core_lib STATIC
         src/core_lib.cpp
+        src/get_hits.cpp
+        src/record_hit.cpp
+        src/getters.cpp
         # add more .cpp here as project grows
 )
 
